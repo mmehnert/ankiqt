@@ -374,7 +374,7 @@ Are you sure?""")):
             return
         self.web.setLinkHandler(lambda url: self.delayedMaybeReset())
         i = _("Waiting for editing to finish.")
-        b = self.button("refresh", _("Resume Now"))
+        b = self.button("refresh", _("Resume Now"), key="r")
         self.web.stdHtml("""
 <center><div style="height: 100%%">
 <div style="position:relative; vertical-align: middle;">
@@ -590,6 +590,8 @@ upload, overwriting any changes either here or on AnkiWeb. Proceed?""")):
             self.onAddCard()
         elif key == "b":
             self.onBrowse()
+        elif key == "r":
+            self.maybeReset() 
         elif key == "S":
             self.onStats()
         elif key == "y":
